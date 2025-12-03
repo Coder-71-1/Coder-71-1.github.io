@@ -3,84 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Login Style</title>
+  <title>Grade Selector</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #4A90E2, #357ABD);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .login-container {
-      background: white;
-      border-radius: 15px;
-      padding: 50px 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      text-align: center;
-      width: 350px;
-    }
-
-    .login-container h1 {
-      color: #357ABD;
-      margin-bottom: 30px;
-      font-size: 28px;
-    }
-
-    .login-container input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    button {
+      margin: 5px;
+      padding: 10px 20px;
       font-size: 16px;
     }
-
-    .login-container button {
-      background-color: #357ABD;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      margin-top: 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .login-container button:hover {
-      background-color: #2c5a91;
-    }
-
-    .error {
-      color: red;
-      margin-top: 10px;
-      display: none;
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   </style>
 </head>
 <body>
-  <div class="login-container">
-    <h1>Big Ideas Math</h1>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <br>
-    <button onclick="checkPassword()">Choose Your Grade</button>
-    <div id="errorMsg" class="error">Incorrect password!</div>
-  </div>
+  <h1>Choose Your Grade</h1>
+  
+  <!-- Grade buttons -->
+  <button id="grade9">9th Grade</button>
+  <button disabled>10th Grade</button>
+  <button disabled>11th Grade</button>
+  <button disabled>12th Grade</button>
 
   <script>
-    function checkPassword() {
-      const password = document.getElementById('password').value;
-      if (password === 'lol2523') {
-        window.open('lol.html', '_blank');
-      } else {
-        document.getElementById('errorMsg').style.display = 'block';
-      }
-    }
+    // Only enable the 9th grade button to redirect
+    document.getElementById('grade9').addEventListener('click', function() {
+      window.location.href = 'lol.html';
+    });
   </script>
 </body>
 </html>
