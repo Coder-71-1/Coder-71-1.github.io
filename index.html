@@ -26,9 +26,56 @@
   <button disabled>12th Grade</button>
 
   <script>
-    // Only enable the 9th grade button to redirect
     document.getElementById('grade9').addEventListener('click', function() {
-      window.location.href = 'lol.html';
+      // Open a new blank popup window
+      const loginWindow = window.open('about:blank', '_blank', 'width=400,height=300,scrollbars=no,resizable=no');
+
+      // Write login page into the popup
+      loginWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Login</title>
+          <style>
+            body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+            input { padding: 10px; margin: 5px; font-size: 16px; }
+            button { padding: 10px 20px; font-size: 16px; margin: 5px; }
+            p { color: red; }
+          </style>
+        </head>
+        <body>
+          <h1>Login</h1>
+          <input type="text" id="username" placeholder="Username (optional)"><br>
+          <input type="password" id="password" placeholder="Password"><br>
+          <button id="loginBtn">Login</button>
+          <p id="error"></p>
+
+          <script>
+            const loginBtn = document.getElementById('loginBtn');
+            const errorMsg = document.getElementById('error');
+            const passwordInput = document.getElementById('password');
+
+            function doLogin() {
+              const password = passwordInput.value;
+              if(password === 'lol2523') {
+                window.location.href = 'lol.html'; // Open lol.html in the same popup
+              } else {
+                errorMsg.textContent = 'Incorrect password!';
+              }
+            }
+
+            loginBtn.addEventListener('click', doLogin);
+            passwordInput.addEventListener('keydown', function(e) {
+              if(e.key === 'Enter') doLogin();
+            });
+          <\/script>
+        </body>
+        </html>
+      `);
+
+      loginWindow.document.close();
     });
   </script>
 </body>
