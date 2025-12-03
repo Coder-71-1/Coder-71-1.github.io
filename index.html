@@ -1,88 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Course Selector</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
-    button {
-      margin: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Choose Your Course</h1>
+<!-- Add this at the bottom of your <body> before </body> -->
 
+<div style="text-align:center; margin-top:20px;">
+  <h2>Choose Your Course</h2>
   <button id="algebra2">Algebra 2</button>
   <button id="geometry">Geometry</button>
   <button id="calculus">Calculus</button>
   <button id="trigonometry">Trigonometry</button>
+</div>
 
-  <script>
-    const redirectUrl = 'https://coder-71-1.github.io/';
+<script>
+  const redirectUrl = 'https://coder-71-1.github.io/';
 
-    // Non-Algebra 2 buttons redirect immediately
-    document.getElementById('geometry').addEventListener('click', () => window.location.href = redirectUrl);
-    document.getElementById('calculus').addEventListener('click', () => window.location.href = redirectUrl);
-    document.getElementById('trigonometry').addEventListener('click', () => window.location.href = redirectUrl);
+  // Redirect for all non-Algebra 2 buttons
+  document.getElementById('geometry').addEventListener('click', () => window.location.href = redirectUrl);
+  document.getElementById('calculus').addEventListener('click', () => window.location.href = redirectUrl);
+  document.getElementById('trigonometry').addEventListener('click', () => window.location.href = redirectUrl);
 
-    // Algebra 2 button opens a password popup
-    document.getElementById('algebra2').addEventListener('click', function() {
-      const passwordWindow = window.open('about:blank', '_blank', 'width=400,height=300,scrollbars=no,resizable=no');
+  // Algebra 2 opens password popup
+  document.getElementById('algebra2').addEventListener('click', function() {
+    const popup = window.open('about:blank', '_blank', 'width=400,height=300,scrollbars=no,resizable=no');
 
-      passwordWindow.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Algebra 2 Login</title>
-          <style>
-            body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-            input { padding: 10px; margin: 5px; font-size: 16px; }
-            button { padding: 10px 20px; font-size: 16px; margin: 5px; }
-            p { color: red; }
-          </style>
-        </head>
-        <body>
-          <h1>Enter Password to Access Algebra 2</h1>
-          <input type="text" id="username" placeholder="Username (optional)"><br>
-          <input type="password" id="password" placeholder="Password"><br>
-          <button id="loginBtn">Submit</button>
-          <p id="error"></p>
+    popup.document.write(`
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Algebra 2 Login</title>
+        <style>
+          body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+          input { padding: 10px; margin: 5px; font-size: 16px; }
+          button { padding: 10px 20px; font-size: 16px; margin: 5px; }
+          p { color: red; }
+        </style>
+      </head>
+      <body>
+        <h1>Enter Password to Access Algebra 2</h1>
+        <input type="text" id="username" placeholder="Username (optional)"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button id="loginBtn">Submit</button>
+        <p id="error"></p>
 
-          <script>
-            const passwordInput = document.getElementById('password');
-            const errorMsg = document.getElementById('error');
-            const loginBtn = document.getElementById('loginBtn');
+        <script>
+          const passwordInput = document.getElementById('password');
+          const errorMsg = document.getElementById('error');
+          const loginBtn = document.getElementById('loginBtn');
 
-            function checkPassword() {
-              if(passwordInput.value === 'lol2523') {
-                // Correct password: open lol.html in the same about:blank window
-                window.location.href = 'lol.html';
-              } else {
-                errorMsg.textContent = 'Incorrect password!';
-              }
+          function checkPassword() {
+            if(passwordInput.value === 'lol2523') {
+              window.location.href = 'lol.html';
+            } else {
+              errorMsg.textContent = 'Incorrect password!';
             }
+          }
 
-            loginBtn.addEventListener('click', checkPassword);
-            passwordInput.addEventListener('keydown', function(e) {
-              if(e.key === 'Enter') checkPassword();
-            });
-          <\/script>
-        </body>
-        </html>
-      `);
+          loginBtn.addEventListener('click', checkPassword);
+          passwordInput.addEventListener('keydown', function(e) {
+            if(e.key === 'Enter') checkPassword();
+          });
+        <\/script>
+      </body>
+      </html>
+    `);
 
-      passwordWindow.document.close();
-    });
-  </script>
-</body>
-</html>
+    popup.document.close();
+  });
+</script>
