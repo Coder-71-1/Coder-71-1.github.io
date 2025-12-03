@@ -1,283 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>lol</title>
-<style>
-:root {
-  --bg: #05050a;
-  --accent: #6a00ff;
-  --accent2: #0044ff;
-  --accent3: #7b2ff7;
-  --text: #ffffff;
-  --panel: #0c0c15;
-}
-body {
-  margin: 0;
-  background: var(--bg);
-  font-family: Arial, sans-serif;
-  color: var(--text);
-  overflow: hidden;
-}
-#welcomeOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-#welcomeText {
-  font-size: 42px;
-  color: white;
-  margin-bottom: 10px;
-}
-#welcomeSubtext {
-  color: white;
-  font-size: 16px;
-  opacity: 0.7;
-}
-#mainUI {
-  display: none;
-  height: 100vh;
-  width: 100vw;
-  padding: 20px;
-  box-sizing: border-box;
-}
-#categoryButtons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.btn {
-  background: var(--accent3);
-  border: none;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-}
-.page {
-  display: none;
-}
-.page.show {
-  display: block;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-.gameCard {
-  background: var(--panel);
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  cursor: pointer;
-  border: 2px solid var(--accent3);
-}
-.gameCard img {
-  width: 100%;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 8px;
-}
-.gameCard h4 {
-  margin: 6px 0 0 0;
-  color: var(--text);
-  font-size: 14px;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom: 16px;
-}
-.header .title {
-  font-size: 20px;
-  font-weight: bold;
-}
-.searchBar {
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.searchBar input {
-  padding:8px 12px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
-  color: var(--text);
-}
-.footer {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  text-align: center;
-  color: rgba(255,255,255,0.6);
-  font-size: 12px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Ideas Math Login Style</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #4A90E2, #357ABD);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      width: 350px;
+    }
+
+    .login-box h1 {
+      color: #357ABD;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .login-box button {
+      background-color: #357ABD;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .login-box button:hover {
+      background-color: #2c5a91;
+    }
+  </style>
 </head>
 <body>
-<div id="welcomeOverlay">
-  <div id="welcomeText">lol</div>
-  <div id="welcomeSubtext">Loading...</div>
-</div>
-<div id="mainUI">
-  <div class="container">
-    <div class="header">
-      <div class="title">lol</div>
-      <div class="searchBar">
-        <input id="search" placeholder="Search games..." />
-        <button class="btn" id="allGamesBtn">All</button>
-      </div>
-    </div>
-
-    <div id="categoryButtons">
-      <button class="btn" id="sportsGamesBtn">Sports</button>
-      <button class="btn" id="puzzleGamesBtn">Puzzle</button>
-      <button class="btn" id="obbyGamesBtn">Obby</button>
-    </div>
-
-    <div id="allGamesPage" class="page show">
-      <div class="grid" id="allGamesGrid"></div>
-    </div>
-    <div id="sportsGamesPage" class="page">
-      <div class="grid" id="sportsGamesGrid"></div>
-    </div>
-    <div id="puzzlegamesPage" class="page">
-      <div class="grid" id="puzzleGamesGrid"></div>
-    </div>
-    <div id="obbygamesPage" class="page">
-      <div class="grid" id="obbyGamesGrid"></div>
-    </div>
-
+  <div class="login-box">
+    <h1>Big Ideas Math</h1>
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <br>
+    <button onclick="window.location.href='https://drive.google.com lol.html';">
+      Choose Your Grade
+    </button>
   </div>
-
-  <div class="footer">Made by lol</div>
-</div>
-
-<script>
-window.onload = () => {
-  setTimeout(() => {
-    document.getElementById('welcomeOverlay').style.display = 'none';
-    document.getElementById('mainUI').style.display = 'block';
-    populateAllGames();
-  }, 1200);
-};
-
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('show'));
-  document.getElementById(id).classList.add('show');
-}
-
-document.getElementById('allGamesBtn').onclick = () => showPage('allGamesPage');
-document.getElementById('sportsGamesBtn').onclick = () => showPage('sportsGamesPage');
-document.getElementById('puzzleGamesBtn').onclick = () => showPage('puzzlegamesPage');
-document.getElementById('obbyGamesBtn').onclick = () => showPage('obbygamesPage');
-
-const games = [
-  {name: "DarkLight", url: "https://darklight.neo-space.space/", img: "https://via.placeholder.com/300x150/4b0082/ffffff?text=DarkLight"},
-  {name: "Basketball Stars", url: "https://basketballstars.io", img: "https://via.placeholder.com/300x150/0000ff/ffffff?text=Basketball+Stars"},
-  {name: "Getaway Shootout", url: "https://getawayshootout.com", img: "https://via.placeholder.com/300x150/7b2ff7/ffffff?text=Getaway+Shootout"},
-  {name: "Retro Bowl", url: "https://example.com/retro", img: "https://via.placeholder.com/300x150/222222/ffffff?text=Retro+Bowl"}
-];
-
-// simple function to create cards
-function createCard(g) {
-  const card = document.createElement('div');
-  card.className = 'gameCard';
-  card.onclick = () => openInBlank(g.url);
-  const img = document.createElement('img');
-  img.src = g.img;
-  const h4 = document.createElement('h4');
-  h4.textContent = g.name;
-  card.appendChild(img);
-  card.appendChild(h4);
-  return card;
-}
-
-function populateAllGames() {
-  const grid = document.getElementById('allGamesGrid');
-  grid.innerHTML = '';
-  games.forEach(g => grid.appendChild(createCard(g)));
-  // populate categories simple example
-  document.getElementById('sportsGamesGrid').innerHTML = '';
-  document.getElementById('puzzleGamesGrid').innerHTML = '';
-  document.getElementById('obbyGamesGrid').innerHTML = '';
-  // assign first as sports for demo
-  document.getElementById('sportsGamesGrid').appendChild(createCard(games[1]));
-  document.getElementById('puzzleGamesGrid').appendChild(createCard(games[2]));
-  document.getElementById('obbyGamesGrid').appendChild(createCard(games[0]));
-}
-
-function openInBlank(url) {
-  // open about:blank and write embed-style hub into it so everything stays in about:blank
-  const tab = window.open('about:blank', '_blank');
-  tab.document.write(`<!DOCTYPE html>
-  <html><head><meta charset="utf-8"><title>lol - Game</title>
-  <style>
-    :root{--bg:#05050a;--accent3:#7b2ff7;--text:#ffffff;--panel:#0c0c15}
-    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Arial}
-    .topbar{position:fixed;left:0;right:0;top:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(90deg,#07070d,rgba(0,0,0,0.2));box-shadow:0 2px 8px rgba(0,0,0,0.4)}
-    .title{font-weight:bold}
-    .controls{display:flex;gap:8px;align-items:center}
-    .btn{background:var(--accent3);border:none;color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
-    #gameEmbed{position:absolute;left:0;right:0;top:52px;bottom:0;border:none;width:100%;height:calc(100% - 52px)}
-    #back{position:fixed;left:12px;top:12px;width:36px;height:36px;border-radius:50%;border:none;background:#37006b;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer}
-    #fs{position:fixed;right:12px;top:12px;width:36px;height:36px;border-radius:50%;border:none;background:#0044ff;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer}
-  </style>
-  </head><body>
-  <div class="topbar"><div class="title">lol</div><div class="controls"><button id="fs" class="btn">⤢</button></div></div>
-  <button id="back">&#x2190;</button>
-  <embed id="gameEmbed" type="text/html"></embed>
-  <script>
-    const embed = document.getElementById('gameEmbed');
-    const back = document.getElementById('back');
-    const fs = document.getElementById('fs');
-    function load(url){
-      embed.src = url;
-      embed.style.display = 'block';
-      back.style.display = 'flex';
-      fs.style.display = 'flex';
-    }
-    function goBack(){
-      embed.src = '';
-      embed.style.display = 'none';
-      back.style.display = 'none';
-      fs.style.display = 'none';
-    }
-    back.onclick = goBack;
-    fs.onclick = ()=>{
-      if(embed.requestFullscreen) embed.requestFullscreen();
-      else if(embed.webkitRequestFullscreen) embed.webkitRequestFullscreen();
-      else if(embed.msRequestFullscreen) embed.msRequestFullscreen();
-    };
-    // receive url from opener
-    window.addEventListener('message', (e)=>{
-      if(e.data && e.data.type === 'loadGame') load(e.data.url);
-    }, false);
-  </script>
-  </body></html>`);
-  tab.document.close();
-  // send the url to the new tab to load in embed
-  tab.postMessage({type:'loadGame', url}, '*');
-}
-</script>
-
 </body>
 </html>
