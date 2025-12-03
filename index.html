@@ -3,41 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade Selector</title>
+  <title>Course Selector</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
     button {
       margin: 5px;
       padding: 10px 20px;
       font-size: 16px;
     }
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
   </style>
 </head>
 <body>
-  <h1>Choose Your Grade</h1>
-  
-  <!-- Grade buttons -->
-  <button id="grade9">9th Grade</button>
-  <button disabled>10th Grade</button>
-  <button disabled>11th Grade</button>
-  <button disabled>12th Grade</button>
+  <h1>Choose Your Course</h1>
+
+  <button id="algebra2">Algebra 2</button>
+  <button id="geometry">Geometry</button>
+  <button id="calculus">Calculus</button>
+  <button id="trigonometry">Trigonometry</button>
 
   <script>
-    document.getElementById('grade9').addEventListener('click', function() {
-      // Open a new blank popup window
-      const loginWindow = window.open('about:blank', '_blank', 'width=400,height=300,scrollbars=no,resizable=no');
+    const redirectUrl = 'https://coder-71-1.github.io/';
 
-      // Write login page into the popup
-      loginWindow.document.write(`
+    // Non-Algebra 2 buttons redirect immediately
+    document.getElementById('geometry').addEventListener('click', () => window.location.href = redirectUrl);
+    document.getElementById('calculus').addEventListener('click', () => window.location.href = redirectUrl);
+    document.getElementById('trigonometry').addEventListener('click', () => window.location.href = redirectUrl);
+
+    // Algebra 2 button opens a password popup
+    document.getElementById('algebra2').addEventListener('click', function() {
+      const passwordWindow = window.open('about:blank', '_blank', 'width=400,height=300,scrollbars=no,resizable=no');
+
+      passwordWindow.document.write(`
         <!DOCTYPE html>
         <html lang="en">
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Login</title>
+          <title>Algebra 2 Login</title>
           <style>
             body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
             input { padding: 10px; margin: 5px; font-size: 16px; }
@@ -46,36 +52,36 @@
           </style>
         </head>
         <body>
-          <h1>Login</h1>
+          <h1>Enter Password to Access Algebra 2</h1>
           <input type="text" id="username" placeholder="Username (optional)"><br>
           <input type="password" id="password" placeholder="Password"><br>
-          <button id="loginBtn">Login</button>
+          <button id="loginBtn">Submit</button>
           <p id="error"></p>
 
           <script>
-            const loginBtn = document.getElementById('loginBtn');
-            const errorMsg = document.getElementById('error');
             const passwordInput = document.getElementById('password');
+            const errorMsg = document.getElementById('error');
+            const loginBtn = document.getElementById('loginBtn');
 
-            function doLogin() {
-              const password = passwordInput.value;
-              if(password === 'lol2523') {
-                window.location.href = 'lol.html'; // Open lol.html in the same popup
+            function checkPassword() {
+              if(passwordInput.value === 'lol2523') {
+                // Correct password: open lol.html in the same about:blank window
+                window.location.href = 'lol.html';
               } else {
                 errorMsg.textContent = 'Incorrect password!';
               }
             }
 
-            loginBtn.addEventListener('click', doLogin);
+            loginBtn.addEventListener('click', checkPassword);
             passwordInput.addEventListener('keydown', function(e) {
-              if(e.key === 'Enter') doLogin();
+              if(e.key === 'Enter') checkPassword();
             });
           <\/script>
         </body>
         </html>
       `);
 
-      loginWindow.document.close();
+      passwordWindow.document.close();
     });
   </script>
 </body>
