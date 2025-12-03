@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Big Ideas Math</title>
+  <title>Math Login Style</title>
   <style>
     body {
       margin: 0;
@@ -54,15 +54,33 @@
     .login-container button:hover {
       background-color: #2c5a91;
     }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <div class="login-container">
     <h1>Big Ideas Math</h1>
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
     <br>
-    <button onclick="window.open('lol.html', '_blank');">Choose Your Grade</button>
+    <button onclick="checkPassword()">Choose Your Grade</button>
+    <div id="errorMsg" class="error">Incorrect password!</div>
   </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      if (password === 'lol2523') {
+        window.open('lol.html', '_blank');
+      } else {
+        document.getElementById('errorMsg').style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
