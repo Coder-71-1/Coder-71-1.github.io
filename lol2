@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOL Games</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #000033, #330033, #000000);
+        color: #ffffff;
+    }
+
+    header {
+        background-color: rgba(0,0,0,0.7);
+        padding: 15px;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    #search-bar {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+        max-width: 400px;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background: rgba(50,0,50,0.7);
+        color: white;
+        text-align: center;
+    }
+
+    #menu {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .game-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 240px;
+        padding: 20px;
+        background-color: rgba(50, 0, 50, 0.7);
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.2em;
+        color: white;
+        border: none;
+        transition: 0.2s;
+    }
+
+    .game-btn:hover {
+        background-color: rgba(100, 0, 100, 0.8);
+    }
+
+    .game-btn img {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 10px;
+        object-fit: contain;
+    }
+
+    #iframe-container {
+        width: 100%;
+        height: 90vh;
+        position: relative;
+        display: none;
+    }
+
+    #game-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    #back-btn, #fullscreen-btn {
+        position: fixed;
+        top: 10px;
+        padding: 10px 15px;
+        background-color: rgba(50,0,50,0.7);
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        color: white;
+        cursor: pointer;
+        z-index: 1000;
+        display: none;
+    }
+    #back-btn { left: 10px; }
+    #fullscreen-btn { right: 10px; }
+</style>
+</head>
+<body>
+
+<header>LOL Games</header>
+
+<input id="search-bar" type="text" placeholder="Search for games...">
+
+<div id="menu"></div>
+
+<button id="back-btn">Back</button>
+<button id="fullscreen-btn">Fullscreen</button>
+
+<div id="iframe-container">
+    <iframe id="game-frame"></iframe>
+</div>
+
+<script>
+const games = [
+  {name: "Ultraviolet", url: "https://holyunblocker.org/ultraviolet#", img: "https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png"},
+  {name: "Slope", url: "https://raw.githack.com/skoolgq/Polaris-Assets/main/slope/index.html", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/slope.webp"},
+  {name: "Basket Random", url: "https://maddox05.github.io/basic-ruffle-player/html/basket_random/index.html", img: "https://play-lh.googleusercontent.com/gP8T5Z1O-ngxIloiwcBZzrzyLPYDp0R_1BDNKUDZboIRPVImeyWI8-7aExvB9gAGNKc"},
+  {name: "Drive Mad", url: "https://gavintheman.vercel.app/semag/drivemad/index.html", img: "https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM"},
+  {name: "Backyard Baseball", url: "https://script.google.com/macros/s/AKfycbxCGoMs4wmjd_c08SeWaKuJKh9BoQlovbZIbPtzK03OLOQ6CmmImR9s6HpsxCtaHYbi/exec", img: "https://play-lh.googleusercontent.com/DwEQoD1zm9FLxRstBtdWZUXNxgyWgSsOjM0ILPtlAm1L1X7f2RZdmrjizTlOAdoDF_8=w240-h480-rw"},
+  {name: "Backyard Basketball", url: "https://script.google.com/macros/s/AKfycbzutG_IKsHOQPExLK1OU1gKUy0FzeES71P13XgouwmJWvJaDi8U26ivFGRD_IHuFIDJ/exec", img: "https://play-lh.googleusercontent.com/xDCBTMTXfhB6HKHVHZXOq06e3c_7d2Ehrdqh62IcCojuX5cAMaO2wIU9tX-J-HZjtT0"},
+  {name: "Getaway Shootout", url: "https://script.google.com/macros/s/AKfycbzsriooEqdtLu3zcG2AUjtLNeqgETUcTv5duzFgEKlIZAZZsYlq49sR2aN6nSwsAjcs/exec", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/rooftop.webp"},
+  {name: "Crossy Road", url: "https://stigmabeanyay.netlify.app/games/crossy/", img: "https://math711.github.io/img/class-402.png"},
+  {name: "Basketball Stars", url: "https://script.google.com/macros/s/AKfycbwzYMDDcdDUAvEP7iO6OdRk-5_oUp6vYvDdyEEz8tTOzWi5y4-Qf3vQ6TBoZuc9UYVcLg/exec", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/basketball-stars.webp"},
+  {name: "Idle Mining Empire", url: "https://ubgwtf.gitlab.io/idle-mining-empire/", img: "https://unblocked-games.s3.amazonaws.com/media/posts/372/idle-mining-empire-512.jpg"},
+  {name: "Adventure Capitalist", url: "https://gavintheman.vercel.app/semag/adventure-capitalist/index.html", img: "https://www.andyroid.net/wp-content/uploads/2015/06/AdVenture-Capitalist-icon.png"}
+];
+
+const menuDiv = document.getElementById("menu");
+const iframe = document.getElementById("game-frame");
+const iframeContainer = document.getElementById("iframe-container");
+const backBtn = document.getElementById("back-btn");
+const fullscreenBtn = document.getElementById("fullscreen-btn");
+const searchBar = document.getElementById("search-bar");
+
+function loadGame(url) {
+    iframe.src = url;
+    iframeContainer.style.display = "block";
+    backBtn.style.display = "inline-block";
+    fullscreenBtn.style.display = "inline-block";
+    menuDiv.style.display = "none";
+}
+
+function showMenu() {
+    iframeContainer.style.display = "none";
+    backBtn.style.display = "none";
+    fullscreenBtn.style.display = "none";
+    menuDiv.style.display = "flex";
+}
+
+function displayGames(list) {
+    menuDiv.innerHTML = "";
+    list.forEach(game => {
+        const btn = document.createElement("button");
+        btn.className = "game-btn";
+        btn.innerHTML = `<img src="${game.img}"><span>${game.name}</span>`;
+        btn.onclick = () => loadGame(game.url);
+        menuDiv.appendChild(btn);
+    });
+}
+
+// Search functionality
+searchBar.addEventListener("input", () => {
+    const term = searchBar.value.toLowerCase();
+    displayGames(games.filter(g => g.name.toLowerCase().includes(term)));
+});
+
+// Fullscreen button fix: fullscreen the container instead of iframe
+fullscreenBtn.onclick = () => {
+    if (iframeContainer.requestFullscreen) iframeContainer.requestFullscreen();
+    else if (iframeContainer.webkitRequestFullscreen) iframeContainer.webkitRequestFullscreen();
+    else if (iframeContainer.msRequestFullscreen) iframeContainer.msRequestFullscreen();
+};
+
+backBtn.onclick = showMenu;
+
+// Initial display
+displayGames(games);
+</script>
+
+</body>
+</html>
