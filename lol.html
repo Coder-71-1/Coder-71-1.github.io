@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOL Games</title>
+<title>Big Ideas</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -31,19 +31,19 @@
         color: white;
         text-align: center;
     }
-    #menu, #game-container {
+    #menu {
         padding: 20px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 20px;
     }
     .game-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 120px;
-        padding: 10px;
+        width: 240px;       /* 2x bigger */
+        padding: 20px;      /* 2x bigger */
         background-color: rgba(50, 0, 50, 0.7);
         border: none;
         border-radius: 10px;
@@ -51,14 +51,15 @@
         transition: 0.2s;
         color: white;
         font-weight: bold;
+        font-size: 1.2em;
     }
     .game-btn:hover {
         background-color: rgba(100, 0, 100, 0.8);
     }
     .game-btn img {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 5px;
+        width: 160px;       /* 2x bigger */
+        height: 160px;      /* 2x bigger */
+        margin-bottom: 10px;
         object-fit: contain;
     }
     #game-frame {
@@ -85,13 +86,11 @@
 </head>
 <body>
 
-<header>LOL Games</header>
+<header>lol</header>
 
 <input type="text" id="search-bar" placeholder="Search for games...">
 
-<div id="menu">
-    <!-- Game buttons will appear here -->
-</div>
+<div id="menu"></div>
 
 <button id="back-btn" style="display:none;">Back</button>
 <button id="fullscreen-btn" style="display:none;">Fullscreen</button>
@@ -100,7 +99,7 @@
 
 <script>
 const games = [
-  {name: "Ultraviolet", url: "https://holyunblocker.org/ultraviolet#", img: "https://https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png"},
+  {name: "Ultraviolet", url: "https://holyunblocker.org/ultraviolet#", img: "https://raw.githubusercontent.com/titaniumnetwork-dev/Ultraviolet-Static/main/public/uv.png"},
   {name: "Slope", url: "https://raw.githack.com/skoolgq/Polaris-Assets/main/slope/index.html", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/slope.webp"},
   {name: "Basket Random", url: "https://maddox05.github.io/basic-ruffle-player/html/basket_random/index.html", img: "https://play-lh.googleusercontent.com/gP8T5Z1O-ngxIloiwcBZzrzyLPYDp0R_1BDNKUDZboIRPVImeyWI8-7aExvB9gAGNKc"},
   {name: "Drive Mad", url: "https://gavintheman.vercel.app/semag/drivemad/index.html", img: "https://play-lh.googleusercontent.com/V_egAxch0phxs10H_Z1QpWRrsH4phd8egT_5ZjYlFbXzXvwpUGpmJMn2h6HgbGkSlZSM"},
@@ -108,23 +107,10 @@ const games = [
   {name: "Backyard Basketball", url: "https://script.google.com/macros/s/AKfycbzutG_IKsHOQPExLK1OU1gKUy0FzeES71P13XgouwmJWvJaDi8U26ivFGRD_IHuFIDJ/exec", img: "https://play-lh.googleusercontent.com/xDCBTMTXfhB6HKHVHZXOq06e3c_7d2Ehrdqh62IcCojuX5cAMaO2wIU9tX-J-HZjtT0"},
   {name: "Getaway Shootout", url: "https://script.google.com/macros/s/AKfycbzsriooEqdtLu3zcG2AUjtLNeqgETUcTv5duzFgEKlIZAZZsYlq49sR2aN6nSwsAjcs/exec", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/rooftop.webp"},
   {name: "Crossy Road", url: "https://stigmabeanyay.netlify.app/games/crossy/", img: "https://math711.github.io/img/class-402.png"},
-  {name: "Doodle Jump", url: "https://raw.githack.com/skoolgq/Polaris-Assets/main/doodle-jump/index.html", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/doodle.webp"},
-  {name: "Draw The Hill", url: "https://element-games-v5.vercel.app/g/source/draw-the-hill/index.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK8WYV2uyGpWXy2lKdzlsSWfdTCK9LcDs1ZQ&s"},
   {name: "Basketball Stars", url: "https://script.google.com/macros/s/AKfycbwzYMDDcdDUAvEP7iO6OdRk-5_oUp6vYvDdyEEz8tTOzWi5y4-Qf3vQ6TBoZuc9UYVcLg/exec", img: "https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/basketball-stars.webp"},
   {name: "Idle Mining Empire", url: "https://ubgwtf.gitlab.io/idle-mining-empire/", img: "https://unblocked-games.s3.amazonaws.com/media/posts/372/idle-mining-empire-512.jpg"},
   {name: "Adventure Capitalist", url: "https://gavintheman.vercel.app/semag/adventure-capitalist/index.html", img: "https://www.andyroid.net/wp-content/uploads/2015/06/AdVenture-Capitalist-icon.png"}
 ];
-
-// Shuffle all except the first (Ultraviolet)
-const shuffledGames = [games[0], ...games.slice(1).sort(() => Math.random() - 0.5)];
-
-// Example: render as buttons (optional)
-shuffledGames.forEach(game => {
-  const btn = document.createElement("button");
-  btn.innerHTML = `<img src="${game.img}" width="50" height="50"> ${game.name}`;
-  btn.onclick = () => window.location.href = game.url;
-  document.body.appendChild(btn);
-});
 
 const menuDiv = document.getElementById("menu");
 const iframe = document.getElementById("game-frame");
@@ -148,13 +134,9 @@ function loadGame(url) {
 }
 
 function toggleFullscreen() {
-    if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-    } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-    }
+    if (iframe.requestFullscreen) iframe.requestFullscreen();
+    else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
+    else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
 }
 
 function displayGames(filteredGames) {
