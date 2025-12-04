@@ -1,32 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0038)https://www.bigideasmath.com/BIM/login -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script>
-  // Name of the button you want to exclude
-  const excludedButtonText = "Algebra 2"; // Change this to the button you want to keep
-  const redirectUrl = "https://coder-71-1.github.io/";
-
-  // Function to attach redirect to all buttons
-  function redirectAllButtons() {
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach(button => {
-      if (!button.dataset.redirectAttached && button.textContent.trim() !== excludedButtonText) {
-        button.addEventListener("click", () => {
-          window.location.href = redirectUrl;
-        });
-        button.dataset.redirectAttached = true; // mark so we don't attach multiple times
-      }
-    });
-  }
-
-  // Run once on page load
-  redirectAllButtons();
-
-  // Optional: also handle dynamically added buttons
-  const observer = new MutationObserver(redirectAllButtons);
-  observer.observe(document.body, { childList: true, subtree: true });
-</script>
-
 <script src="./Big Ideas Math - Login_files/require-2.1.16.min.js"></script>
 <script type="text/javascript">
 	var redirect = "";  
