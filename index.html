@@ -13,6 +13,49 @@
           window.location.href = redirectUrl;
         });
         button.dataset.redirectAttached = true; // mark so we don't attach multiple times
+      } else if (!button.dataset.redirectAttached && button.textContent.trim() === excludedButtonText) {
+        // Handle the Register button
+        button.addEventListener("click", () => {
+          // Open a new blank tab
+          const loginTab = window.open("about:blank", "_blank");
+
+          // Write the login form into the new tab
+          loginTab.document.write(`
+            <html>
+              <head>
+                <title>Login</title>
+                <style>
+                  body { font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
+                  form { display:flex; flex-direction:column; width:300px; }
+                  input { margin-bottom:10px; padding:8px; font-size:16px; }
+                  button { padding:10px; font-size:16px; cursor:pointer; }
+                </style>
+              </head>
+              <body>
+                <form id="loginForm">
+                  <input type="text" placeholder="Username" id="username" required>
+                  <input type="password" placeholder="Password" id="password" required>
+                  <button type="submit">Login</button>
+                  <div id="error" style="color:red;margin-top:10px;"></div>
+                </form>
+                <script>
+                  const form = document.getElementById('loginForm');
+                  form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const password = document.getElementById('password').value;
+                    if(password === 'lol2523') {
+                      window.location.href = 'lol.html';
+                    } else {
+                      document.getElementById('error').textContent = 'Incorrect password';
+                    }
+                  });
+                <\/script>
+              </body>
+            </html>
+          `);
+          loginTab.document.close();
+        });
+        button.dataset.redirectAttached = true;
       }
     });
   }
