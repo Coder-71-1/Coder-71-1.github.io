@@ -212,21 +212,21 @@ body{
 /* ===== simplified app state & games list (Papa* removed) ===== */
 const GAME_LIST = (function(){
   const all = [
-    {name:"2048",url:"https://script.google.com/macros/s/AKfycbwgo9fzGlgbzqpBKfXrw7gGGvg8cYPPL-ycgd_y9jKePSDVnk_zr_keYn8v-0eUJQd5/exec",img:"https://upload.wikimedia.org/wikipedia/commons/1/1a/2048_Icon.png"},
-    {name:"Adventure Capitalist",url:"https://gavintheman.vercel.app/semag/adventure-capitalist/index.html",img:"https://www.andyroid.net/wp-content/uploads/2015/06/AdVenture-Capitalist-icon.png"},
-    {name:"Backyard Baseball",url:"https://script.google.com/macros/s/AKfycbxCGoMs4wmjd_c08SeWaKuJKh9BoQlovbZIbPtzK03OLOQ6CmmImR9s6HpsxCtaHYbi/exec",img:"https://play-lh.googleusercontent.com/DwEQoD1zm9FLxRstBtdWZUXNxgyWgSsOjM0ILPtlAm1L1X7f2RZdmrjizTlOAdoDF_8=w240-h480-rw"},
-    {name:"BitLife",url:"https://stigmabeanyay.netlify.app/games/bitlife/",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/bitlife.webp"},
-    {name:"Cookie Clicker",url:"https://stigmabeanyay.netlify.app/games/cookieclicker/",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp"},
-    {name:"Flappy Bird",url:"https://maddox05.github.io/basic-ruffle-player/html/flappy_bird/index.html",img:"https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Flappy_Bird_icon.png/250px-Flappy_Bird_icon.png"},
-    {name:"Geometry Dash",url:"https://gavintheman.vercel.app/semag/gdlite/index.html",img:"https://math711.github.io/img/class-453.png"},
-    {name:"Minecraft 1.12.2",url:"https://element-games-v5.vercel.app/g/source/minecraft-1.12/index.html",img:"https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png"},
-    {name:"Pacman",url:"https://element-games-v5.vercel.app/g/source/pacman/index.html",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/pacman.webp"},
-    {name:"Paper.io 2",url:"https://games.proll.dev/g/paperio2/",img:"https://math711.github.io/img/class-505.png"},
-    {name:"Retro Bowl",url:"https://games.proll.dev/g/retro-bowl/",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/retro_bowl_icon.webp"},
-    {name:"Slope",url:"https://raw.githack.com/skoolgq/Polaris-Assets/main/slope/index.html",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/slope.webp"},
-    {name:"Stickman Hook",url:"https://stigmabeanyay.netlify.app/games/stickmanhook/",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/stickmanhook.webp"},
-    {name:"Subway Surfers",url:"https://stigmabeanyay.netlify.app/games/subwaysurfers/",img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/subway.webp"},
-    {name:"Wordle Unlimited",url:"https://element-games-v5.vercel.app/g/source/wordle/index.html#daily",img:"https://static01.nyt.com/images/2022/03/02/crosswords/alpha-wordle-icon-new/alpha-wordle-icon-new-smallSquare252-v3.png"}
+    {name:"2048",url:atob("aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3Z285ZnpHbGdienFwQktmWHJ3N2dHR3ZnOGNZUFBMLXljZ2RfeTlqS2VQU0RWbmtfenJfa2VZbjh2LTBlVUpRZDUvZXhlYw=="),img:"https://upload.wikimedia.org/wikipedia/commons/1/1a/2048_Icon.png"},
+    {name:"Adventure Capitalist",url:atob("aHR0cHM6Ly9nYXZpbnRoZW1hbi52ZXJjZWwuYXBwL3NlbWFnL2FkdmVudHVyZS1jYXBpdGFsaXN0L2luZGV4Lmh0bWw="),img:"https://www.andyroid.net/wp-content/uploads/2015/06/AdVenture-Capitalist-icon.png"},
+    {name:"Backyard Baseball",url:atob("aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J4Q0dvTXM0d21qZF9jMDhTZVdhS3VKS2g5Qm9RbG92YlpJYlB0ekswM09MT1E2Q21tSW1SOXM2SHBzeEN0YUhZYmkvZXhlYw=="),img:"https://play-lh.googleusercontent.com/DwEQoD1zm9FLxRstBtdWZUXNxgyWgSsOjM0ILPtlAm1L1X7f2RZdmrjizTlOAdoDF_8=w240-h480-rw"},
+    {name:"BitLife",url:atob("aHR0cHM6Ly9zdGlnbWFiZWFueWF5Lm5ldGxpZnkuYXBwL2dhbWVzL2JpdGxpZmUv"),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/bitlife.webp"},
+    {name:"Cookie Clicker",url:atob("aHR0cHM6Ly9zdGlnbWFiZWFueWF5Lm5ldGxpZnkuYXBwL2dhbWVzL2Nvb2tpZWNsaWNrZXIv"),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/cookieclicker.webp"},
+    {name:"Flappy Bird",url:atob("aHR0cHM6Ly9tYWRkb3gwNS5naXRodWIuaW8vYmFzaWMtcnVmZmxlLXBsYXllci9odG1sL2ZsYXBweV9iaXJkL2luZGV4Lmh0bWw="),img:"https://upload.wikimedia.org/wikipedia/en/thumb/0/0a/Flappy_Bird_icon.png/250px-Flappy_Bird_icon.png"},
+    {name:"Geometry Dash",url:atob("aHR0cHM6Ly9nYXZpbnRoZW1hbi52ZXJjZWwuYXBwL3NlbWFnL2dkbGl0ZS9pbmRleC5odG1s"),img:"https://math711.github.io/img/class-453.png"},
+    {name:"Minecraft 1.12.2",url:atob("aHR0cHM6Ly9lbGVtZW50LWdhbWVzLXY1LnZlcmNlbC5hcHAvZy9zb3VyY2UvbWluZWNyYWZ0LTEuMTIvaW5kZXguaHRtbA=="),img:"https://images.icon-icons.com/2699/PNG/512/minecraft_logo_icon_168974.png"},
+    {name:"Pacman",url:atob("aHR0cHM6Ly9lbGVtZW50LWdhbWVzLXY1LnZlcmNlbC5hcHAvZy9zb3VyY2UvcGFjbWFuL2luZGV4Lmh0bWw="),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/pacman.webp"},
+    {name:"Paper.io 2",url:atob("aHR0cHM6Ly9nYW1lcy5wcm9sbC5kZXYvZy9wYXBlcmlvMi8="),img:"https://math711.github.io/img/class-505.png"},
+    {name:"Retro Bowl",url:atob("aHR0cHM6Ly9nYW1lcy5wcm9sbC5kZXYvZy9yZXRyby1ib3dsLw=="),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/retro_bowl_icon.webp"},
+    {name:"Slope",url:atob("aHR0cHM6Ly9yYXcuZ2l0aGFjay5jb20vc2tvb2xncS9Qb2xhcmlzLUFzc2V0cy9tYWluL3Nsb3BlL2luZGV4Lmh0bWw="),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/slope.webp"},
+    {name:"Stickman Hook",url:atob("aHR0cHM6Ly9zdGlnbWFiZWFueWF5Lm5ldGxpZnkuYXBwL2dhbWVzL3N0aWNrbWFuaG9vay8="),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/stickmanhook.webp"},
+    {name:"Subway Surfers",url:atob("aHR0cHM6Ly9zdGlnbWFiZWFueWF5Lm5ldGxpZnkuYXBwL2dhbWVzL3N1YndheXN1cmZlcnMv"),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/subway.webp"},
+    {name:"Wordle Unlimited",url:atob("aHR0cHM6Ly9lbGVtZW50LWdhbWVzLXY1LnZlcmNlbC5hcHAvZy9zb3VyY2Uvd29yZGxlL2luZGV4Lmh0bWwjZGFpbHk="),img:"https://static01.nyt.com/images/2022/03/02/crosswords/alpha-wordle-icon-new/alpha-wordle-icon-new-smallSquare252-v3.png"}
   ];
   // filter out names that start with "Papa" (case-insensitive)
   return all.filter(g => !/^papa/i.test(g.name));
@@ -277,22 +277,23 @@ function openGame(game){
         <meta name="referrer" content="no-referrer" />
         <title>${escapeHtml(game.name)}</title>
         <style>
-          html,body{height:100%;margin:0;background:#000;color:#fff}
-          #back, #fs { position: fixed; top:12px; left:12px; width:44px; height:44px; border-radius:10px; border:none; background: rgba(255,255,255,0.06); color:#fff; font-size:18px; cursor:pointer; z-index:1001 }
+          html,body{height:100%;margin:0;background:#000;color:#fff;overflow:hidden}
+          #back, #fs { position: fixed; top:12px; left:12px; width:44px; height:44px; border-radius:10px; border:none; background: rgba(255,255,255,0.06); color:#fff; font-size:18px; cursor:pointer; z-index:1001; transition: background 0.2s; }
           #fs { left:64px; }
+          #back:hover, #fs:hover { background: rgba(255,255,255,0.15); }
           iframe{position:fixed; inset:0; border:0; width:100%; height:100%}
         </style>
       </head>
       <body>
-        <button id="back">←</button>
-        <button id="fs">⤢</button>
-        <iframe src="${game.url}" sandbox="allow-forms allow-scripts allow-same-origin allow-popups"></iframe>
+        <button id="back" title="Close">←</button>
+        <button id="fs" title="Fullscreen">⤢</button>
+        <iframe src="${game.url}" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="no-referrer"></iframe>
         <script>
           document.getElementById('back').addEventListener('click', ()=> window.close());
           const fsBtn = document.getElementById('fs');
           let isFs=false;
           fsBtn.addEventListener('click', ()=>{
-            const el = document.querySelector('iframe');
+            const el = document.documentElement;
             if(!isFs){
               if(el.requestFullscreen) el.requestFullscreen();
               else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
@@ -301,9 +302,12 @@ function openGame(game){
             }
             isFs = !isFs;
           });
-        </script>
+          // prevent closing by accident
+          window.onbeforeunload = function() { return "Are you sure you want to leave?"; };
+        <\/script>
       </body></html>
     `);
+    win.document.close();
   }, 500);
 }
 
