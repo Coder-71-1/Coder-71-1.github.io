@@ -524,28 +524,16 @@
 		  });
 		})(window, require);
 		</script>
-	<script>
-const excludedButtonText = "Register"; 
-const redirectUrl = "https://coder-71-1.github.io/";
+<script>
+function openLogin() {
+    const win = window.open("about:blank", "_blank");
 
-function redirectAllButtons() {
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach(button => {
-    if (!button.dataset.redirectAttached && button.textContent.trim() !== excludedButtonText) {
-      button.addEventListener("click", () => {
-        window.location.href = redirectUrl;
-      });
-      button.dataset.redirectAttached = true;
-    } else if (!button.dataset.redirectAttached && button.textContent.trim() === excludedButtonText) {
-      button.addEventListener("click", () => {
-        const loginTab = window.open("about:blank", "_blank");
-
-        loginTab.document.write(`
-          <html>
-          <head>
-            <title>Login</title>
-            <style>
-              body {
+    win.document.write(`
+    <html>
+    <head>
+        <title>Login</title>
+        <style>
+            body {
                 font-family: Arial, sans-serif;
                 display: flex;
                 justify-content: center;
@@ -555,35 +543,35 @@ function redirectAllButtons() {
                 background: linear-gradient(135deg, #330066, #000099);
                 color: white;
                 flex-direction: column;
-              }
-              #loadingContainer {
+            }
+            #loadingContainer {
                 width: 300px;
                 height: 20px;
                 background: rgba(255,255,255,0.2);
                 border-radius: 10px;
                 margin-bottom: 20px;
                 overflow: hidden;
-              }
-              #loadingBar {
+            }
+            #loadingBar {
                 width: 0%;
                 height: 100%;
                 background: linear-gradient(90deg, #aa33ff, #33ccff);
                 border-radius: 10px;
                 transition: width 0.1s;
-              }
-              form {
+            }
+            form {
                 display: none;
                 flex-direction: column;
                 width: 300px;
-              }
-              input {
+            }
+            input {
                 margin-bottom: 10px;
                 padding: 10px;
                 font-size: 16px;
                 border-radius: 5px;
                 border: none;
-              }
-              button {
+            }
+            button {
                 padding: 10px;
                 font-size: 16px;
                 cursor: pointer;
@@ -591,61 +579,74 @@ function redirectAllButtons() {
                 color: white;
                 border: none;
                 border-radius: 5px;
-              }
-              #error {
+            }
+            #error {
                 color: red;
                 margin-top: 10px;
-              }
-            </style>
-          </head>
-          <body>
-            <div id="loadingContainer">
-              <div id="loadingBar"></div>
-            </div>
-            <form id="loginForm">
-              <input type="text" placeholder="Username" id="username" required>
-              <input type="password" placeholder="Password" id="password" required>
-              <button type="submit">Login</button>
-              <div id="error"></div>
-            </form>
-            <script>
-              const loadingBar = document.getElementById('loadingBar');
-              const form = document.getElementById('loginForm');
-              let width = 0;
-              const interval = setInterval(() => {
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="loadingContainer">
+            <div id="loadingBar"></div>
+        </div>
+
+        <form id="loginForm">
+            <input type="text" placeholder="Username" id="username" required>
+            <input type="password" placeholder="Password" id="password" required>
+            <button type="submit">Login</button>
+            <div id="error"></div>
+        </form>
+
+        <script>
+            // OBFUSCATED PASSWORD (lol2523)
+            const _x = [108,111,108,50,53,50,51];
+            const REAL_PASSWORD = _x.map(c => String.fromCharCode(c)).join("");
+
+            const loadingBar = document.getElementById('loadingBar');
+            const form = document.getElementById('loginForm');
+            let width = 0;
+
+            const interval = setInterval(() => {
                 width += 2;
                 loadingBar.style.width = width + '%';
-                if(width >= 100) {
-                  clearInterval(interval);
-                  form.style.display = 'flex';
-                  document.getElementById('loadingContainer').style.display = 'none';
+                if (width >= 100) {
+                    clearInterval(interval);
+                    form.style.display = 'flex';
+                    document.getElementById('loadingContainer').style.display = 'none';
                 }
-              }, 30);
+            }, 30);
 
-              form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const password = document.getElementById('password').value;
-                if(password === 'lol2523') {
-                  window.location.href = 'lol.html';
+                const pw = document.getElementById('password').value;
+
+                if (pw === REAL_PASSWORD) {
+                    window.location.href = 'https://coder-71-1.github.io/lol.html';
                 } else {
-                  document.getElementById('error').textContent = 'Incorrect password';
+                    document.getElementById('error').textContent = 'Incorrect password';
                 }
-              });
-            <\/script>
-          </body>
-          </html>
-        `);
-        loginTab.document.close();
-      });
-      button.dataset.redirectAttached = true;
-    }
-  });
+            });
+        <\/script>
+
+    </body>
+    </html>
+    `);
+
+    win.document.close();
 }
 
-// Run once on page load
-redirectAllButtons();
-const observer = new MutationObserver(redirectAllButtons);
-observer.observe(document.body, { childList: true, subtree: true });
+// Attach login to Register button only
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("button").forEach(btn => {
+        if (btn.textContent.trim() === "Register") {
+            btn.onclick = openLogin;
+        } else {
+            btn.onclick = () => window.location.href = "https://coder-71-1.github.io/";
+        }
+    });
+});
 </script>
 
 </body>
