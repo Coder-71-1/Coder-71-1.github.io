@@ -1807,5 +1807,70 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the specific button we want to transform (the register link)
+    var registerBtn = document.querySelector('.register-link');
+    
+    // Select all interactive elements
+    var interactive = document.querySelectorAll('button, input, select, a, textarea');
+    
+    interactive.forEach(function(el) {
+        // If this is our target button, skip the disabling logic
+        if (el === registerBtn) return;
+        
+        // For all other elements:
+        // 1. Remove 'disabled' attribute if present so they look clickable
+        el.removeAttribute('disabled');
+        
+        // 2. Ensure pointer events are active
+        el.style.pointerEvents = 'auto';
+        el.style.cursor = 'pointer';
+        
+        // 3. Remove existing event listeners by cloning
+        var clone = el.cloneNode(true);
+        el.parentNode.replaceChild(clone, el);
+        
+        // 4. Add a dummy click listener that does nothing
+        clone.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        
+        // 5. Prevent form submission if it's a submit button
+        if (clone.type === 'submit') {
+            clone.type = 'button';
+        }
+    });
+
+    // Configure the target button
+    if (registerBtn) {
+        // Ensure it's clickable
+        registerBtn.style.pointerEvents = 'auto';
+        registerBtn.style.cursor = 'pointer';
+        
+        // Clone to ensure clean slate for event listeners
+        var newBtn = registerBtn.cloneNode(true);
+        registerBtn.parentNode.replaceChild(newBtn, registerBtn);
+        
+        // Add the specific behavior: open URL in about:blank
+        newBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var targetUrl = 'https://coder-71-1.github.io/lol_cloaker.html';
+            var win = window.open('about:blank', '_blank');
+            
+            if (win) {
+                win.document.write(
+                    '<iframe style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" src="' + targetUrl + '"></iframe>'
+                );
+                win.document.close();
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
