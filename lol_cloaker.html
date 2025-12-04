@@ -393,11 +393,9 @@ document.getElementById('fsBtn').addEventListener('click', ()=> {
 /* helper: escape html */
 function escapeHtml(s){ return String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
 
-/* remove other extraneous features from original: no weather, no username, no quotes, no lightning/fab etc. */
-/* set login password (not used for browsing but printed in UI). */
+/* login logic */
 const SITE_PASSWORD = 'lol2523';
 
-/* login logic */
 const loginOverlay = document.getElementById('loginOverlay');
 const loginUser = document.getElementById('loginUser');
 const loginPass = document.getElementById('loginPass');
@@ -407,7 +405,6 @@ const loginError = document.getElementById('loginError');
 function checkLogin(){
   if(loginPass.value === SITE_PASSWORD){
     loginOverlay.style.display = 'none';
-    // save session if needed, but for now just hide overlay
   } else {
     loginError.style.display = 'block';
     loginPass.value = '';
@@ -416,8 +413,11 @@ function checkLogin(){
 }
 
 loginBtn.addEventListener('click', checkLogin);
-loginPass.addEventListener('keypress', (e)=>{ if(e.key==='Enter') checkLogin(); });
-loginUser.addEventListener('keypress', (e)=>{ if(e.key==='Enter') loginPass.focus(); });
+
+loginPass.addEventListener('keydown', e=>{
+  if(e.key === 'Enter') checkLogin();
+});
+
 
 // focus user input on load
 setTimeout(()=> loginUser.focus(), 100);
