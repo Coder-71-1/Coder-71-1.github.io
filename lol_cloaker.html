@@ -164,53 +164,6 @@ body{
 .spinner img{width:64px;height:64px;display:block; animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* login overlay */
-.login-overlay{
-  position:fixed;
-  inset:0;
-  background: rgba(5,4,10,0.95);
-  z-index:20000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  backdrop-filter: blur(10px);
-}
-.login-box{
-  background: rgba(255,255,255,0.05);
-  padding:24px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,0.1);
-  width:100%;
-  max-width:320px;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  text-align:center;
-}
-.login-title{font-size:20px; font-weight:700; margin-bottom:4px}
-.login-input{
-  background: rgba(0,0,0,0.3);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:12px;
-  border-radius:8px;
-  color:white;
-  width:100%;
-  outline:none;
-}
-.login-input:focus{border-color:var(--accent)}
-.login-btn{
-  background:var(--accent);
-  color:white;
-  border:none;
-  padding:12px;
-  border-radius:8px;
-  font-weight:700;
-  cursor:pointer;
-  transition:opacity 0.2s;
-}
-.login-btn:hover{opacity:0.9}
-.error-msg{color:#ef4444; font-size:13px; min-height:20px; display:none}
-
 /* mobile tweaks */
 @media (max-width:600px){
   .header{flex-direction:column; align-items:flex-start}
@@ -241,22 +194,8 @@ body{
   </div>
 </div>
 
-<!-- login overlay -->
-<div id="loginOverlay" class="login-overlay">
-  <div class="login-box">
-    <div>
-      <div class="login-title">Welcome Back</div>
-      <div style="color:var(--muted);font-size:13px">Please login to continue</div>
-    </div>
-    <input type="text" class="login-input" placeholder="Username" id="loginUser" />
-    <input type="password" class="login-input" placeholder="Password" id="loginPass" />
-    <div id="loginError" class="error-msg">Incorrect password</div>
-    <button class="login-btn" id="loginBtn">Login</button>
-  </div>
-</div>
-
 <!-- simple loader overlay with spinner (uses the base64 image you provided) -->
-<div id="loader" class="loader-overlay">
+<div id="loader" class="loader-overlay" aria-hidden="true">
   <div class="spinner" role="status" aria-live="assertive" aria-label="Loading">
     <img alt="spinner" src="data:image/jpeg;base64,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" />
   </div>
@@ -282,7 +221,6 @@ const GAME_LIST = (function(){
     {name:"Subway Surfers",url:atob("aHR0cHM6Ly9zdGlnbWFiZWFueWF5Lm5ldGxpZnkuYXBwL2dhbWVzL3N1YndheXN1cmZlcnMv"),img:"https://raw.githubusercontent.com/duckmath/icons/refs/heads/main/subway.webp"},
     {name:"Wordle Unlimited",url:atob("aHR0cHM6Ly9lbGVtZW50LWdhbWVzLXY1LnZlcmNlbC5hcHAvZy9zb3VyY2Uvd29yZGxlL2luZGV4Lmh0bWwjZGFpbHk="),img:"https://static01.nyt.com/images/2022/03/02/crosswords/alpha-wordle-icon-new/alpha-wordle-icon-new-smallSquare252-v3.png"}
   ];
-  // filter out names that start with "Papa" (case-insensitive)
   return all.filter(g => !/^papa/i.test(g.name));
 })();
 
@@ -318,7 +256,6 @@ document.getElementById('allBtn').addEventListener('click', ()=> { searchBar.val
 function openGame(game){
   if(!game || !game.url) return;
   showLoader(true);
-  // small delay to show loader
   setTimeout(()=>{
     showLoader(false);
     const win = window.open('', '_blank');
@@ -356,7 +293,6 @@ function openGame(game){
             }
             isFs = !isFs;
           });
-          // prevent closing by accident
           window.onbeforeunload = function() { return "Are you sure you want to leave?"; };
         <\/script>
       </body></html>
@@ -371,15 +307,7 @@ function showLoader(on){
   if(on) loader.classList.add('show'); else loader.classList.remove('show');
 }
 
-/* quick "go" paste URL button */
-document.getElementById('goBtn').addEventListener('click', ()=>{
-  let u = document.getElementById('urlInput').value.trim();
-  if(!u) return;
-  if(!/^https?:\/\//i.test(u)) u = 'https://' + u;
-  openGame({name:'Custom', url:u, img:''});
-});
-
-/* back and fullscreen on main app (these control nothing significant but styled as requested) */
+/* back and fullscreen on main app */
 document.getElementById('newBack').addEventListener('click', ()=> { alert('Back pressed'); });
 document.getElementById('fsBtn').addEventListener('click', ()=> {
   const el = document.documentElement;
@@ -393,38 +321,9 @@ document.getElementById('fsBtn').addEventListener('click', ()=> {
 /* helper: escape html */
 function escapeHtml(s){ return String(s||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
 
-/* login logic */
-const SITE_PASSWORD = 'lol2523';
-
-const loginOverlay = document.getElementById('loginOverlay');
-const loginUser = document.getElementById('loginUser');
-const loginPass = document.getElementById('loginPass');
-const loginBtn = document.getElementById('loginBtn');
-const loginError = document.getElementById('loginError');
-
-function checkLogin(){
-  if(loginPass.value === SITE_PASSWORD){
-    loginOverlay.style.display = 'none';
-  } else {
-    loginError.style.display = 'block';
-    loginPass.value = '';
-    loginPass.focus();
-  }
-}
-
-loginBtn.addEventListener('click', checkLogin);
-
-loginPass.addEventListener('keydown', e=>{
-  if(e.key === 'Enter') checkLogin();
-});
-
-
-// focus user input on load
-setTimeout(()=> loginUser.focus(), 100);
-
-/* small accessibility: focus search on load */
-// searchBar.focus(); // moved to after login
-
+/* All password/login UI removed in this version.
+   Note: removed the unused goBtn/urlInput listener so no script errors occur.
+*/
 </script>
 </body>
 </html>
