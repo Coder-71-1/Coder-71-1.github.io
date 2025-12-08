@@ -1277,48 +1277,13 @@ body.shake {
 
 <div id="comboCounter">x0</div>
 
-<div id="fabMenu">
-  <div class="fab-item" id="fabStats">📊 Stats</div>
-  <div class="fab-item" id="lightToggle">💡 Light</div>
-  <div class="fab-item" id="colorToggle">🎨 Theme</div>
-        <input type="file" id="bgUpload" accept="image/*" style="display:none;"> 
-  <div class="fab-item" id="bgButton">🖼️ Background</div>  
-  </div>
 
-<div id="statsPanel">
-  <button id="statsClose">×</button>
-  <h2>📊 Your Stats</h2>
-  <div class="stat-row">
-    <span class="stat-label">Games Launched</span>
-    <span class="stat-value" id="statLaunches">0</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Favorites</span>
-    <span class="stat-value" id="statFavorites">0</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Total Playtime</span>
-    <span class="stat-value" id="statPlaytime">0m</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Most Played</span>
-    <span class="stat-value" id="statMostPlayed">None</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Badges Earned</span>
-    <span class="stat-value" id="statBadges">0/10</span>
-  </div>
-  <div style="margin-top: 20px;">
-    <h3 style="color: var(--accent); font-size: 16px; margin-bottom: 10px;">🏆 Badges</h3>
-    <div id="badgeDisplay"></div>
-  </div>
+
 </div>
 
 <div id="welcomeOverlay">
-  <div id="welcomeText">KuppyCloaker</div>
+  <div id="welcomeText">LolCloaker</div>
   <div id="welcomeSubtext"></div>
-  <div class="progress-bar" style="position: relative; width: 300px; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 20px;">
-    <div id="welcomeProgress" class="progress-bar" style="position: absolute;"></div>
   </div>
 </div>
 <div class="shell" id="loginShell" style="display:flex; justify-content:center; align-items:center; height:100vh;">
@@ -1339,44 +1304,17 @@ body.shake {
 </div>
 </div>
 </div>
-<div class="starred-games-container" id="starredGamesContainer"></div>
-<div class="info-shell" id="infoShell" style="display:none; margin-bottom:50px;">
-  <div class="time-section">
-    <div class="time-display" id="timeDisplay">--:--</div>
-    <div class="date-display" id="dateDisplay">Loading...</div>
-  </div>
+
   
   <div class="divider"></div>
   
-  <div class="weather-section">
-    <div class="weather-icon" id="weatherIcon">🌤️</div>
-    <div class="weather-info">
-      <div class="temperature" id="temperature">--°</div>
-      <div class="weather-desc" id="weatherDesc">Loading weather...</div>
-    </div>
-    <div class="weather-details">
-      <div class="weather-detail">
-        <div class="detail-label">Feels</div>
-        <div class="detail-value" id="feelsLike">--°</div>
-      </div>
-      <div class="weather-detail">
-        <div class="detail-label">Humid</div>
-        <div class="detail-value" id="humidity">--%</div>
-      </div>
-      <div class="weather-detail">
-        <div class="detail-label">Wind</div>
-        <div class="detail-value" id="windSpeed">-- mph</div>
-      </div>
-    </div>
-  </div>
-</div>
+ 
 <div class="shell" id="homePage">
 <header style="position: relative;">
   <div id="userDisplay" style="position:absolute; top:12px; left:12px; color:var(--accent); font-weight:bold; text-shadow: 0 0 6px var(--accent); font-size:18px;"></div>
   <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
     <h1 id="typedTitle" style="color:white;"></h1>
     <p style="color:var(--muted); font-size:14px; text-align:center;">
-      Lightweight, seamless cloaker. Paste a URL or click a button to start playing instantly.
     </p>
   </div>
     <div style="position:absolute;top:12px;right:12px;">
@@ -1415,7 +1353,7 @@ body.shake {
 <footer>
   <div>
     <div style="display:flex; align-items:center; gap:6px;">
-      <span>— Kuppy</span>
+      <span>— lol</span>
       </a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJDMVpKyTUI2vJoUUcEjCRgWS39s8Yai-5KmWawSi15l0r8Q/viewform?usp=header" 
          target="_blank" 
@@ -1530,6 +1468,7 @@ const defaultGames = [
   {name: "Tiny Fishing", url: "https://stigmabeanyay.netlify.app/games/tinyfishing/", img: "https://math711.github.io/img/class-451.png"},
   {name: "Wordle Unlimited", url: "https://element-games-v5.vercel.app/g/source/wordle/index.html#daily", img: "https://static01.nyt.com/images/2022/03/02/crosswords/alpha-wordle-icon-new/alpha-wordle-icon-new-smallSquare252-v3.png?format=pjpg&quality=75&auto=webp&disable=upscale"},
   {name: "YoHoHo!", url: "https://gavintheman.vercel.app/semag/yohoho/index.html", img: "https://math711.github.io/img/class-828.png"}
+    {name: "YoHoHo!", url: "https://gointerstellar.app/index.html", img: "https://math711.github.io/img/class-828.png"}  
 ];
 
 defaultGames.push(
