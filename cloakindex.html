@@ -2429,13 +2429,13 @@ function getWeeklyPassword() {
   return "lol" + hash.toString(16).toUpperCase();
 }
 
-const secretCode = "KupCloakPass";
+const secretCode = "lol12345";
 const weeklyPassword = getWeeklyPassword();
 document.getElementById("passwordUnlock").addEventListener("click", () => {
   const entered = prompt("Enter special code:");
   if (entered === secretCode) {
     alert(`✅ Your weekly password is:\n\n${weeklyPassword}`);
-  } else if (entered === "050124") {
+  } else if (entered === "lol002") {
     // Enable a trusted device mode: user will be auto-logged in on this browser
     localStorage.setItem('lolTrusted', 'true');
     localStorage.setItem('lolAutoUser', 'lol');
@@ -2529,52 +2529,6 @@ async function fetchWeather() {
     const data = await response.json();
     const current = data.current_condition[0];
     
-    const temp = Math.round(parseFloat(current.temp_F));
-    const feelsLike = Math.round(parseFloat(current.FeelsLikeF));
-    const humidity = current.humidity;
-    const windSpeed = Math.round(parseFloat(current.windspeedMiles));
-    const desc = current.weatherDesc[0].value.toLowerCase();
-    
-    document.getElementById('temperature').textContent = `${temp}°F`;
-    document.getElementById('weatherDesc').textContent = desc;
-    document.getElementById('feelsLike').textContent = `${feelsLike}°F`;
-    document.getElementById('humidity').textContent = `${humidity}%`;
-    document.getElementById('windSpeed').textContent = `${windSpeed} mph`;
-    
-    const weatherIcons = {
-      'clear': '☀️',
-      'sunny': '☀️',
-      'partly cloudy': '⛅',
-      'cloudy': '☁️',
-      'overcast': '☁️',
-      'mist': '🌫️',
-      'fog': '🌫️',
-      'light rain': '🌦️',
-      'rain': '🌧️',
-      'heavy rain': '🌧️',
-      'thunderstorm': '⛈️',
-      'snow': '❄️',
-      'light snow': '🌨️'
-    };
-    
-    let icon = '🌤️';
-    for (const [key, value] of Object.entries(weatherIcons)) {
-      if (desc.includes(key)) {
-        icon = value;
-        break;
-      }
-    }
-    document.getElementById('weatherIcon').textContent = icon;
-    
-  } catch (error) {
-    console.error('Weather fetch error:', error);
-    document.getElementById('weatherDesc').textContent = 'Weather unavailable';
-    document.getElementById('temperature').textContent = '--°F';
-  }
-}
-
-fetchWeather();
-setInterval(fetchWeather, 600000);
 
 document.addEventListener('mousemove', (e) => {
   const cards = document.querySelectorAll('.card');
