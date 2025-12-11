@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>KuppyCloaker</title>
+<title>lolCloaker</title>
 <style>
 :root {
   --bg: #0f1724;
@@ -1251,56 +1251,17 @@ body.shake {
 
 <div id="comboCounter">x0</div>
 
-<div id="fab">⚡</div>
-<div id="fabMenu">
-  <div class="fab-item" id="fabStats">📊 Stats</div>
-  <div class="fab-item" id="lightToggle">💡 Light</div>
-  <div class="fab-item" id="colorToggle">🎨 Theme</div>
-        <input type="file" id="bgUpload" accept="image/*" style="display:none;"> 
-  <div class="fab-item" id="bgButton">🖼️ Background</div>  
-  <div class="fab-item" id="passwordUnlock">🔒 Weekly Password</div>
-</div>
-
-<div id="statsPanel">
-  <button id="statsClose">×</button>
-  <h2>📊 Your Stats</h2>
-  <div class="stat-row">
-    <span class="stat-label">Games Launched</span>
-    <span class="stat-value" id="statLaunches">0</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Favorites</span>
-    <span class="stat-value" id="statFavorites">0</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Total Playtime</span>
-    <span class="stat-value" id="statPlaytime">0m</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Most Played</span>
-    <span class="stat-value" id="statMostPlayed">None</span>
-  </div>
-  <div class="stat-row">
-    <span class="stat-label">Badges Earned</span>
-    <span class="stat-value" id="statBadges">0/10</span>
-  </div>
-  <div style="margin-top: 20px;">
-    <h3 style="color: var(--accent); font-size: 16px; margin-bottom: 10px;">🏆 Badges</h3>
-    <div id="badgeDisplay"></div>
-  </div>
-</div>
 
 <div id="welcomeOverlay">
-  <div id="welcomeText">KuppyCloaker</div>
+  <div id="welcomeText">lolCloaker</div>
   <div id="welcomeSubtext"></div>
-  <div class="progress-bar" style="position: relative; width: 300px; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 20px;">
     <div id="welcomeProgress" class="progress-bar" style="position: absolute;"></div>
   </div>
 </div>
 <div class="shell" id="loginShell" style="display:flex; justify-content:center; align-items:center; height:100vh;">
 
   <div class="login-card" style="background:var(--card); padding:30px; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.5); width:320px; text-align:center;">
-    <h1 style="color:var(--accent); margin-bottom:5px;">KuppyCloaker</h1>
+    <h1 style="color:var(--accent); margin-bottom:5px;">lolCloaker</h1>
     <p id="loginMsg" style="color:red; font-size:12px; height:16px;"></p>
     
 <div style="width: 80%; margin: 0 auto 10px auto; box-sizing: border-box;">
@@ -1311,41 +1272,10 @@ body.shake {
 <div style="width: 80%; margin: 0 auto 20px auto; position: relative; box-sizing: border-box;">
   <input id="loginPassword" type="password" placeholder="Password"
          style="width: 100%; padding:10px 40px 10px 10px; border-radius:8px; border:none; outline:none; font-family: Inter, system-ui, sans-serif; box-sizing: border-box;" />
-  <span id="togglePassword" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer; user-select:none; color:var(--muted); font-size:16px;">👁️</span>
 </div>
 </div>
 </div>
-<div class="starred-games-container" id="starredGamesContainer"></div>
-<div class="info-shell" id="infoShell" style="display:none; margin-bottom:50px;">
-  <div class="time-section">
-    <div class="time-display" id="timeDisplay">--:--</div>
-    <div class="date-display" id="dateDisplay">Loading...</div>
-  </div>
-  
-  <div class="divider"></div>
-  
-  <div class="weather-section">
-    <div class="weather-icon" id="weatherIcon">🌤️</div>
-    <div class="weather-info">
-      <div class="temperature" id="temperature">--°</div>
-      <div class="weather-desc" id="weatherDesc">Loading weather...</div>
-    </div>
-    <div class="weather-details">
-      <div class="weather-detail">
-        <div class="detail-label">Feels</div>
-        <div class="detail-value" id="feelsLike">--°</div>
-      </div>
-      <div class="weather-detail">
-        <div class="detail-label">Humid</div>
-        <div class="detail-value" id="humidity">--%</div>
-      </div>
-      <div class="weather-detail">
-        <div class="detail-label">Wind</div>
-        <div class="detail-value" id="windSpeed">-- mph</div>
-      </div>
-    </div>
-  </div>
-</div>
+
 <div class="shell" id="homePage">
 <header style="position: relative;">
   <div id="userDisplay" style="position:absolute; top:12px; left:12px; color:var(--accent); font-weight:bold; text-shadow: 0 0 6px var(--accent); font-size:18px;"></div>
@@ -1382,7 +1312,7 @@ body.shake {
 
 </div>
 
-  <div id="homeTab" class="tabContent" style="margin-top:20px;">
+  <div id="homeTab" class="tabContent" style="margin-top:20px; display:none;">
     
 <div style="text-align:center; margin-top:10px;">
 </div>
@@ -1391,7 +1321,7 @@ body.shake {
 <footer>
   <div>
     <div style="display:flex; align-items:center; gap:6px;">
-      <span>— Kuppy</span>
+      <span>— lol</span>
       </a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfJDMVpKyTUI2vJoUUcEjCRgWS39s8Yai-5KmWawSi15l0r8Q/viewform?usp=header" 
          target="_blank" 
@@ -1404,7 +1334,7 @@ body.shake {
   </div>
 </footer></div>
 
-<div id="gamesPage">
+<div id="gamesPage" style="display:block;">
   <h2>All Games</h2>
   <div class="presets-grid" id="allGamesGrid"></div>
   <button id="backBtn" class="btn" style="margin-top:20px;">⬅ Back</button>
@@ -1594,13 +1524,13 @@ const quotes = [
   "Not sure where to start? Try a random game.",
   "You can’t block what you can’t detect.",
   "Freedom starts with a tab.",
-  "Kuppy is watching you… but in a friendly way.",
-  "KuppyCloaker is better enjoyed with friends.",
+  "lol is watching you… but in a friendly way.",
+  "lolCloaker is better enjoyed with friends.",
   "I told my computer a joke. It laughed in binary.",
   "Remember: Every button has consequences.",
   "This isn’t a bug. It’s a feature.",
   "If this page was a sandwich, it’d be extra cheesy.",
-  "KuppyCloaker: Making procrastination look productive.",
+  "lolCloaker: Making procrastination look productive.",
   "Click responsibly. Or don’t. Whatever.",
   "Somebody call tech support. Or maybe not.",
   "Your Wi-Fi secretly judges you.",
@@ -1609,7 +1539,7 @@ const quotes = [
   "This page self-destructs in 3… 2… just kidding.",
   "Don’t ask me how this works. I don’t know either.",
   "Don’t read this aloud. Unless you want to.",
-  "Kuppy believes in you. Mostly.",
+  "lol believes in you. Mostly.",
   "Fun fact: This page contains 0 calories.",
   "Smiles are contagious. So are pop-ups.",
   "Do not try to hack this… unless you’re me.",
@@ -1710,11 +1640,11 @@ animateParticles();
 window.addEventListener('load',()=>{
   document.body.classList.add('loaded');
 
-  const savedTabName = localStorage.getItem('kuppyTabName');
+  const savedTabName = localStorage.getItem('lolTabName');
   if(savedTabName) document.title = savedTabName;
 
-  const savedTheme = JSON.parse(localStorage.getItem('kuppyTheme')) || {accent:'#007bff', bg:'#0f1724', card:'#0b1220'};
-  const isLight = localStorage.getItem('kuppyLightMode') === 'true';
+  const savedTheme = JSON.parse(localStorage.getItem('lolTheme')) || {accent:'#007bff', bg:'#0f1724', card:'#0b1220'};
+  const isLight = localStorage.getItem('lolLightMode') === 'true';
 
   document.documentElement.style.setProperty('--accent', savedTheme.accent);
   document.documentElement.style.setProperty('--bg', isLight ? lighten(savedTheme.bg) : savedTheme.bg);
@@ -1724,7 +1654,7 @@ window.addEventListener('load',()=>{
   if(isLight) document.body.classList.add('light');
 });
 
-const text="KuppyCloaker"; let i=0;
+const text="lolCloaker"; let i=0;
 
 function startTyping(){document.getElementById("typedTitle").textContent=""; typeTitle();}
 
@@ -2333,8 +2263,8 @@ function showSportsGamesPage(){
 
 document.getElementById('lightToggle').onclick = () => {
   const isLight = document.body.classList.toggle('light');
-  localStorage.setItem('kuppyLightMode', isLight);
-  const savedTheme = JSON.parse(localStorage.getItem('kuppyTheme')) || {bg:'#0f1724', card:'#0b1220'};
+  localStorage.setItem('lolLightMode', isLight);
+  const savedTheme = JSON.parse(localStorage.getItem('lolTheme')) || {bg:'#0f1724', card:'#0b1220'};
   if(isLight){
     document.documentElement.style.setProperty('--bg', lighten(savedTheme.bg));
     document.documentElement.style.setProperty('--card', lighten(savedTheme.card));
@@ -2368,7 +2298,7 @@ const themes = [
 document.getElementById('colorToggle').onclick=()=>{
   themeIndex=(themeIndex+1)%themes.length;
   const t=themes[themeIndex];
-  localStorage.setItem('kuppyTheme', JSON.stringify(t));
+  localStorage.setItem('lolTheme', JSON.stringify(t));
   const isLight = document.body.classList.contains('light');
   document.documentElement.style.setProperty('--accent', t.accent);
   document.documentElement.style.setProperty('--bg', isLight ? lighten(t.bg) : t.bg);
@@ -2409,8 +2339,8 @@ loginShell.classList.add('fade');
 homePage.classList.add('fade');
 
 // Auto-login if device was previously marked trusted
-if (localStorage.getItem('kuppyTrusted') === 'true') {
-  const autoUser = localStorage.getItem('kuppyAutoUser') || 'Kuppy';
+if (localStorage.getItem('lolTrusted') === 'true') {
+  const autoUser = localStorage.getItem('lolAutoUser') || 'lol';
   try {
     // mimic successful login flow
     loginShell.classList.add('hidden');
@@ -2496,7 +2426,7 @@ function getWeeklyPassword() {
     hash = (hash * 32 + seed.charCodeAt(i)) % 999999;
   }
 
-  return "Kuppy" + hash.toString(16).toUpperCase();
+  return "lol" + hash.toString(16).toUpperCase();
 }
 
 const secretCode = "KupCloakPass";
@@ -2507,8 +2437,8 @@ document.getElementById("passwordUnlock").addEventListener("click", () => {
     alert(`✅ Your weekly password is:\n\n${weeklyPassword}`);
   } else if (entered === "050124") {
     // Enable a trusted device mode: user will be auto-logged in on this browser
-    localStorage.setItem('kuppyTrusted', 'true');
-    localStorage.setItem('kuppyAutoUser', 'Kuppy');
+    localStorage.setItem('lolTrusted', 'true');
+    localStorage.setItem('lolAutoUser', 'lol');
     alert('✅ Trusted device enabled. You will be logged in automatically on this device.');
 
     // Immediately perform the same UI transitions as a successful login
@@ -2522,7 +2452,7 @@ document.getElementById("passwordUnlock").addEventListener("click", () => {
           homePage.classList.remove('hidden');
           startTyping();
         }, 10);
-        userDisplay.textContent = 'Kuppy';
+        userDisplay.textContent = 'lol';
         displayStarredGames();
       }, 500);
     } catch (e) {
@@ -3006,13 +2936,13 @@ const observer = new MutationObserver((mutations) => {
   }
 });
 
-const KuppyState = {
-  soundEnabled: localStorage.getItem('kuppySoundEnabled') !== 'false',
-  stats: JSON.parse(localStorage.getItem('kuppyStats') || '{"launches":0,"favorites":0,"playtime":0,"games":{}}'),
-  badges: JSON.parse(localStorage.getItem('kuppyBadges') || '[]'),
+const lolState = {
+  soundEnabled: localStorage.getItem('lolSoundEnabled') !== 'false',
+  stats: JSON.parse(localStorage.getItem('lolStats') || '{"launches":0,"favorites":0,"playtime":0,"games":{}}'),
+  badges: JSON.parse(localStorage.getItem('lolBadges') || '[]'),
   combo: 0,
   comboTimer: null,
-  customCursor: localStorage.getItem('kuppyCustomCursor') === 'true',
+  customCursor: localStorage.getItem('lolCustomCursor') === 'true',
 };
 
 function createConfetti(x, y, count = 50) {
@@ -3040,20 +2970,20 @@ function createConfetti(x, y, count = 50) {
 }
 
 const achievements = [
-  { id: 'first_launch', name: 'First Steps', desc: 'Launch your first game', icon: '🎮', check: () => KuppyState.stats.launches >= 1 },
-  { id: 'game_hoarder', name: 'Game Hoarder', desc: 'Star 5 games', icon: '⭐', check: () => KuppyState.stats.favorites >= 5 },
-  { id: 'dedicated', name: 'Dedicated Player', desc: 'Launch 25 games', icon: '🏆', check: () => KuppyState.stats.launches >= 25 },
+  { id: 'first_launch', name: 'First Steps', desc: 'Launch your first game', icon: '🎮', check: () => lolState.stats.launches >= 1 },
+  { id: 'game_hoarder', name: 'Game Hoarder', desc: 'Star 5 games', icon: '⭐', check: () => lolState.stats.favorites >= 5 },
+  { id: 'dedicated', name: 'Dedicated Player', desc: 'Launch 25 games', icon: '🏆', check: () => lolState.stats.launches >= 25 },
   { id: 'speed_runner', name: 'Speed Runner', desc: 'Build a 5x combo', icon: '⚡', check: () => false },
-  { id: 'night_owl', name: 'Night Owl', desc: 'Use KuppyCloaker after midnight', icon: '🦉', check: () => new Date().getHours() >= 0 && new Date().getHours() < 6 },
-  { id: 'collector', name: 'Collector', desc: 'Star 10 games', icon: '💎', check: () => KuppyState.stats.favorites >= 10 },
-  { id: 'explorer', name: 'Explorer', desc: 'Try the random game 10 times', icon: '🧭', check: () => (KuppyState.stats.games['__random__'] || 0) >= 10 },
-  { id: 'marathon', name: 'Marathon Runner', desc: 'Launch 50 games', icon: '🏃', check: () => KuppyState.stats.launches >= 50 },
-  { id: 'master', name: 'Kuppy Master', desc: 'Earn all other badges', icon: '👑', check: () => KuppyState.badges.length >= 9 }
+  { id: 'night_owl', name: 'Night Owl', desc: 'Use lolCloaker after midnight', icon: '🦉', check: () => new Date().getHours() >= 0 && new Date().getHours() < 6 },
+  { id: 'collector', name: 'Collector', desc: 'Star 10 games', icon: '💎', check: () => lolState.stats.favorites >= 10 },
+  { id: 'explorer', name: 'Explorer', desc: 'Try the random game 10 times', icon: '🧭', check: () => (lolState.stats.games['__random__'] || 0) >= 10 },
+  { id: 'marathon', name: 'Marathon Runner', desc: 'Launch 50 games', icon: '🏃', check: () => lolState.stats.launches >= 50 },
+  { id: 'master', name: 'lol Master', desc: 'Earn all other badges', icon: '👑', check: () => lolState.badges.length >= 9 }
 ];
 
 function checkAchievements() {
   achievements.forEach(achievement => {
-    if (!KuppyState.badges.includes(achievement.id) && achievement.check()) {
+    if (!lolState.badges.includes(achievement.id) && achievement.check()) {
       unlockAchievement(achievement);
     }
   });
@@ -3062,8 +2992,8 @@ function checkAchievements() {
 }
 
 function unlockAchievement(achievement) {
-  KuppyState.badges.push(achievement.id);
-  localStorage.setItem('kuppyBadges', JSON.stringify(KuppyState.badges));
+  lolState.badges.push(achievement.id);
+  localStorage.setItem('lolBadges', JSON.stringify(lolState.badges));
   
   const achDiv = document.createElement('div');
   achDiv.className = 'achievement';
@@ -3093,7 +3023,7 @@ function updateBadgeDisplay() {
   badgeDisplay.innerHTML = '';
   
   achievements.forEach(ach => {
-    const unlocked = KuppyState.badges.includes(ach.id);
+    const unlocked = lolState.badges.includes(ach.id);
 
     const badge = document.createElement('div');
     badge.className = 'badge' + (unlocked ? '' : ' locked');
@@ -3110,16 +3040,16 @@ function updateBadgeDisplay() {
 
 
 function incrementCombo() {
-  KuppyState.combo++;
+  lolState.combo++;
   
-  clearTimeout(KuppyState.comboTimer);
-  KuppyState.comboTimer = setTimeout(() => {
-    KuppyState.combo = 0;
+  clearTimeout(lolState.comboTimer);
+  lolState.comboTimer = setTimeout(() => {
+    lolState.combo = 0;
   }, 2000);
   
-  if (KuppyState.combo >= 2) {
+  if (lolState.combo >= 2) {
     const comboDiv = document.getElementById('comboCounter');
-    comboDiv.textContent = `x${KuppyState.combo} COMBO!`;
+    comboDiv.textContent = `x${lolState.combo} COMBO!`;
     comboDiv.classList.remove('show');
     void comboDiv.offsetWidth;
     comboDiv.classList.add('show');
@@ -3129,7 +3059,7 @@ function incrementCombo() {
     }, 1000);
   }
   
-  if (KuppyState.combo >= 5 && !KuppyState.badges.includes('speed_runner')) {
+  if (lolState.combo >= 5 && !lolState.badges.includes('speed_runner')) {
     unlockAchievement(achievements.find(a => a.id === 'speed_runner'));
   }
 }
@@ -3142,10 +3072,10 @@ function screenShake() {
 }
 
 function trackGameLaunch(gameName) {
-  KuppyState.stats.launches++;
+  lolState.stats.launches++;
 if (gameName !== 'Unknown Game') {
-  KuppyState.stats.games[gameName] =
-    (KuppyState.stats.games[gameName] || 0) + 1;
+  lolState.stats.games[gameName] =
+    (lolState.stats.games[gameName] || 0) + 1;
 }
 
   
@@ -3155,22 +3085,22 @@ if (gameName !== 'Unknown Game') {
 }
 
 function saveStats() {
-  localStorage.setItem('kuppyStats', JSON.stringify(KuppyState.stats));
+  localStorage.setItem('lolStats', JSON.stringify(lolState.stats));
 }
 
 function updateStatsDisplay() {
-  document.getElementById('statLaunches').textContent = KuppyState.stats.launches;
+  document.getElementById('statLaunches').textContent = lolState.stats.launches;
   document.getElementById('statFavorites').textContent = JSON.parse(localStorage.getItem('starredGames') || '[]').length;
-const totalMinutes = Math.floor(KuppyState.stats.playtime / 60);
+const totalMinutes = Math.floor(lolState.stats.playtime / 60);
 const hours = Math.floor(totalMinutes / 60);
 const minutes = totalMinutes % 60;
 document.getElementById('statPlaytime').textContent = hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`;  
-  const mostPlayed = Object.entries(KuppyState.stats.games)
+  const mostPlayed = Object.entries(lolState.stats.games)
     .filter(([name]) => name !== '__random__')
     .sort(([,a], [,b]) => b - a)[0];
   
   document.getElementById('statMostPlayed').textContent = mostPlayed ? `${mostPlayed[0]} (${mostPlayed[1]}x)` : 'None';
-  document.getElementById('statBadges').textContent = `${KuppyState.badges.length}/${achievements.length}`;
+  document.getElementById('statBadges').textContent = `${lolState.badges.length}/${achievements.length}`;
   
   updateBadgeDisplay();
 }
@@ -3267,7 +3197,7 @@ document.addEventListener('click', (e) => {
     const rect = e.target.getBoundingClientRect();
     createConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 20);
     
-    KuppyState.stats.favorites = JSON.parse(localStorage.getItem('starredGames') || '[]').length;
+    lolState.stats.favorites = JSON.parse(localStorage.getItem('starredGames') || '[]').length;
     saveStats();
     checkAchievements();
   }
@@ -3314,7 +3244,7 @@ showToast = function(message, type = 'success') {
 };
 
 setInterval(() => {
-  KuppyState.stats.playtime += 1;
+  lolState.stats.playtime += 1;
   saveStats();
 }, 1000);
 
@@ -3429,7 +3359,7 @@ const cardObserver = new MutationObserver(() => {
     card.classList.add('breathe-checked');
     
     card.addEventListener('mouseenter', () => {
-      if (KuppyState.soundEnabled) {
+      if (lolState.soundEnabled) {
         playSound(300, 0.05, 'sine');
       }
     });
@@ -3462,7 +3392,7 @@ if (specialMessage) {
 
 const motivationalQuotes = [
   'Every game is a new adventure! 🎮',
-  'You\'ve launched ' + KuppyState.stats.launches + ' games so far! 🚀',
+  'You\'ve launched ' + lolState.stats.launches + ' games so far! 🚀',
   'Keep exploring and having fun! ✨',
   'Gaming is not just a hobby, it\'s a lifestyle! 🎯',
   'You\'re doing great! 🌟'
@@ -3473,10 +3403,10 @@ setInterval(() => {
   showToast(quote, 'success');
 }, 60000);
 
-if (KuppyState.stats.launches > 0 && KuppyState.stats.launches % 10 === 0) {
+if (lolState.stats.launches > 0 && lolState.stats.launches % 10 === 0) {
   setTimeout(() => {
     createConfetti(window.innerWidth / 2, window.innerHeight / 2, 30);
-    showToast(`🎉 Milestone! You've launched ${KuppyState.stats.launches} games!`, 'success');
+    showToast(`🎉 Milestone! You've launched ${lolState.stats.launches} games!`, 'success');
   }, 3000);
 }
 
